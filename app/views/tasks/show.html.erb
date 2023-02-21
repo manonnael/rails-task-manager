@@ -1,0 +1,22 @@
+<div class="container">
+    <h1><%= @task.title %></h1>
+
+  <div class="btn">
+    <%= link_to 'Edit', tasks_edit_path(@task) %>
+  </div>
+
+    <p><%= @task.details %></p>
+    <% if @task.completed == false %>
+    <p><%= "This task is not completed"  %></p>
+    <% else  %>
+    <p> <%= "This task is completed"%></p>
+    <% end %>
+
+  <div class="btn">
+    <%= link_to 'Delete', task_path(@task), data:{turbo_method: :delete, turbo_comfirm: 'Are you sure?'} %>
+  </div>
+
+  <div class="btn">
+    <%= link_to "Retour à la liste", tasks_path %>
+  </div>
+</div>
